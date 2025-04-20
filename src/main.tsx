@@ -8,15 +8,18 @@ import {
 } from "react-router-dom";
 import Layout from "./Layout/Layout";
 import InvoiceProvider from "./contexts/InvoiceProvider";
+import Invoices from "./components/Invoices";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Navigate to={"/invoices"} />,
-  },
-  {
-    path: "/invoices",
     element: <Layout />,
+    children: [
+      {
+        path: "/invoices",
+        element: <Invoices />,
+      },
+    ],
   },
 ]);
 

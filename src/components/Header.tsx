@@ -1,11 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "../../public/assets/logo.svg";
 import moonIcon from "../../public/assets/icon-moon.svg";
 import sunIcon from "../../public/assets/icon-sun.svg";
 import avatar from "../../public/assets/image-avatar.jpg";
+import { useNavigate } from "react-router-dom";
 
 export default function Heeader() {
   const [darkMode, setDarkMode] = useState<boolean>(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate("/invoices");
+  }, []);
 
   const handleDarkMode = () => {
     setDarkMode((prevMode) => !prevMode);
