@@ -8,16 +8,16 @@ const Invoices = () => {
     <div className="flex flex-col items-center w-full">
       <div className="w-[375px] invoice-filter-add flex flex-row items-center justify-between mt-[36px] px-[25px]">
         <div className="invoices flex flex-col">
-          <h2 className="text-[#0C0E16] text-[24px] font-bold">
+          <h2 className="text-[#0C0E16] text-[24px] font-bold dark:text-[#fff]">
             Invoices
           </h2>
-          <p className="text-[#888EB0] text-[13px] font-normal">
+          <p className="text-[#888EB0] text-[13px] font-normal dark:text-[#DFE3FA]">
             {invoices.length + 1} invoices
           </p>
         </div>
         <div className="filter-new flex flex-row items-center gap-[18px] ">
           <div className="filter flex flex-row gap-[12px] items-center ">
-            <p className="text-[#0C0E16] text-[15px] font-bold">
+            <p className="text-[#0C0E16] text-[15px] font-bold dark:text-[#fff]">
               Filter
             </p>
             <img src={arrowDown} alt="arrow down icon" />
@@ -33,7 +33,39 @@ const Invoices = () => {
       <div className="invoice-list mt-[32px] flex flex-col gap-[16px]">
         {invoices.map((invoice) => {
           return (
-            <div className="p-[24px] w-[327px] bg-white rounded-[8px]"></div>
+            <div
+              key={invoice.id}
+              className="p-[24px] w-[327px] bg-white rounded-[8px] flex flex-col "
+            >
+              <div className="id-name flex flex-row items-center justify-between">
+                <p className="text-[#7E88C3] text-[15px] font-bold">
+                  #
+                  <span className="text-[#0C0E16] text-[15px] font-bold">
+                    {invoice.id}
+                  </span>
+                </p>
+                <p className="text-[#858BB2] text-[13px] font-medium">
+                  {invoice.clientName}
+                </p>
+              </div>
+              <div className="status flex flex-row items-center justify-between mt-[24px]">
+                <div className="left flex flex-col items-center gap-[9px]">
+                  <p className="text-[#888EB0] text-[13px] font-medium">
+                    Due
+                    {new Date(invoice.paymentDue).toLocaleDateString(
+                      "en-GB",
+                      {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                      }
+                    )}
+                  </p>
+                  <p>{invoice.total}</p>
+                </div>
+                <div className="right"></div>
+              </div>
+            </div>
           );
         })}
       </div>
