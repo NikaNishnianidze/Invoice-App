@@ -7,6 +7,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Layout from "./Layout/Layout";
+import InvoiceProvider from "./contexts/InvoiceProvider";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <InvoiceProvider>
+      <RouterProvider router={router} />
+    </InvoiceProvider>
   </StrictMode>
 );
