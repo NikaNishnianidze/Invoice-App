@@ -2,13 +2,11 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { Navigate } from "react-router-dom";
 import "./index.css";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Layout/Layout";
 import InvoiceProvider from "./contexts/InvoiceProvider";
 import Invoices from "./components/Invoices";
+import InvoiceInfo from "./components/InvoiceInfo";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +16,10 @@ const router = createBrowserRouter([
       {
         path: "/invoices",
         element: <Invoices />,
+      },
+      {
+        path: "/invoices/:id",
+        element: <InvoiceInfo />,
       },
     ],
   },

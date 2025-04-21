@@ -2,12 +2,14 @@ import { useInvoice } from "../contexts/InvoiceProvider";
 import arrowDown from "../../public/assets/icon-arrow-down.svg";
 import plusIcon from "../../public/assets/icon-plus.svg";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Invoices = () => {
   const { invoices } = useInvoice();
   const [filterOpen, setFilterOpen] = useState<boolean>(false);
   const [filteredInvoice, setFilteredInvoice] = useState(invoices);
   const [selectedStatuses, setSelectedStatuses] = useState<string[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (selectedStatuses.length === 0) {
@@ -19,6 +21,10 @@ const Invoices = () => {
       setFilteredInvoice(filtered);
     }
   }, [selectedStatuses, invoices]);
+
+  const handleMoreInfo = (id: string) => {
+    navigate(`/invoices/${id}`);
+  };
 
   return (
     <div className="flex flex-col items-center w-full">
@@ -89,6 +95,7 @@ const Invoices = () => {
         {filteredInvoice.map((invoice) => {
           return (
             <div
+              onClick={() => handleMoreInfo(invoice.id)}
               key={invoice.id}
               className="p-[24px] w-[327px] bg-white rounded-[8px] flex flex-col shadow-box-light dark:shadow-box-dark dark:bg-box-dark"
             >
