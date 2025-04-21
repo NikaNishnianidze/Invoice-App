@@ -5,7 +5,14 @@
 
 @theme {
   --color-divider: #494e6e;
+  --color-box-dark: #1e2139;
   --color-new: #7c5dfa;
+  --color-paid: #33d69f;
+  --color-pending: #ff8f00;
+  --color-draft: #373b53;
+
+  --shadow-box-dark: 0px 10px 10px -10px rgba(72, 84, 159, 0.1);
+  --shadow-box-light: 0px 10px 10px -10px rgba(72, 84, 159, 0.1);
 }
 
 body {
