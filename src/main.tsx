@@ -7,6 +7,7 @@ import Layout from "./Layout/Layout";
 import InvoiceProvider from "./contexts/InvoiceProvider";
 import Invoices from "./components/Invoices";
 import InvoiceInfo from "./components/InvoiceInfo";
+import AddInvoice from "./components/AddInvoice";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/invoices/:id",
         element: <InvoiceInfo />,
+      },
+      {
+        path: "/invoices/newinvoice",
+        element: <AddInvoice />,
       },
     ],
   },

@@ -1,15 +1,14 @@
 import { useNavigate, useParams } from "react-router-dom";
-import data from "../data.json";
 import arrowLeft from "../../public/assets/icon-arrow-left.svg";
 import { useState } from "react";
 import { useInvoice } from "../contexts/InvoiceProvider";
 
 const InvoiceInfo = () => {
   const { id } = useParams();
-  const invoice = data.find((invoice) => invoice.id == id);
   const navigate = useNavigate();
   const [deleteActive, setDeleteActive] = useState<boolean>(false);
-  const { deleteInvoice } = useInvoice();
+  const { invoices, deleteInvoice, handleMarkAsPaid } = useInvoice();
+  const invoice = invoices.find((invoice) => invoice.id == id);
 
   const handleGoBack = () => {
     navigate("/invoices");
@@ -19,6 +18,7 @@ const InvoiceInfo = () => {
     if (!invoice) return;
     deleteInvoice(invoice.id);
     navigate("/invoices");
+    console.log("invoices length:", invoices.length);
   };
 
   return (
@@ -209,7 +209,10 @@ const InvoiceInfo = () => {
         >
           Delete
         </button>
-        <button className="bg-mark w-[149px] py-[16px] rounded-[24px] text-[15px] text-[#fff] font-bold cursor-pointer">
+        <button
+          onClick={() => invoice && handleMarkAsPaid(invoice.id)}
+          className="bg-mark w-[149px] py-[16px] rounded-[24px] text-[15px] text-[#fff] font-bold cursor-pointer"
+        >
           Mark as Paid
         </button>
       </div>

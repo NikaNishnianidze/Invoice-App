@@ -37,3 +37,22 @@ interface IInvoice {
 export type TInvoice = IInvoice;
 
 export type TInvoiceList = IInvoice[];
+
+interface IInputs {
+  invoiceDate: Date | null;
+  paymentTerms: Date | null;
+  address: string;
+  city: string;
+  post: string;
+  coutry: string;
+  clientName: string;
+  clientEmail: string;
+  streetAddress: string;
+  cityName: string;
+  postCode: string;
+  countryTo: string;
+  projectDescription: string;
+  itemName: string;
+  qty: string;
+  price: string;
+}

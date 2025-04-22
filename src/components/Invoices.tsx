@@ -3,6 +3,7 @@ import arrowDown from "../../public/assets/icon-arrow-down.svg";
 import plusIcon from "../../public/assets/icon-plus.svg";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import illustration from "../../public/assets/illustration-empty.svg";
 
 const Invoices = () => {
   const { invoices } = useInvoice();
@@ -26,6 +27,10 @@ const Invoices = () => {
     navigate(`/invoices/${id}`);
   };
 
+  const handleNew = () => {
+    navigate("/invoices/newinvoice");
+  };
+
   return (
     <div className="flex flex-col items-center w-full">
       <div className="w-[375px] invoice-filter-add flex flex-row items-center justify-between mt-[36px] px-[25px]">
@@ -34,7 +39,7 @@ const Invoices = () => {
             Invoices
           </h2>
           <p className="text-[#888EB0] text-[13px] font-normal dark:text-[#DFE3FA]">
-            {invoices.length + 1} invoices
+            {invoices.length} invoices
           </p>
         </div>
         <div className="filter-new flex flex-row items-center gap-[18px] ">
@@ -47,7 +52,10 @@ const Invoices = () => {
             </p>
             <img src={arrowDown} alt="arrow down icon" />
           </div>
-          <div className="new w-[90px] py-[6px] rounded-[24px] bg-new flex flex-row items-center px-[6px] gap-[8px]">
+          <div
+            onClick={handleNew}
+            className="new w-[90px] py-[6px] rounded-[24px] bg-new flex flex-row items-center px-[6px] gap-[8px]"
+          >
             <div className="new-circle w-[32px] h-[32px] rounded-[50%] flex flex-col items-center justify-center bg-white">
               <img src={plusIcon} alt="plus icon" />
             </div>
@@ -55,6 +63,17 @@ const Invoices = () => {
           </div>
         </div>
       </div>
+      {invoices.length <= 1 && (
+        <div className="mt-[102px] ">
+          <img src={illustration} alt="empty illustration" />
+          <p className="mt-[42px] text-center text-[24px] font-bold text-[#0C0E16]">
+            There is nothing here
+          </p>
+          <p className="mt-[23px] max-w-[240px] text-center text-[#888EB0] text-[13px] font-medium">
+            Create an invoice by clicking the New button and get started
+          </p>
+        </div>
+      )}
       {filterOpen && (
         <div className="w-[150px] bg-white rounded-[6px] shadow-box-light ml-[120px] px-[10px] py-[10px] flex flex-col gap-[4px] dark:bg-box-dark">
           {["paid", "pending", "draft"].map((status) => (
