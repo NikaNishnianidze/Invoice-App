@@ -21,6 +21,11 @@ const InvoiceInfo = () => {
     console.log("invoices length:", invoices.length);
   };
 
+  const handleEdit = () => {
+    if (!invoice) return;
+    navigate(`/invoices/edit/${invoice.id}`);
+  };
+
   return (
     <div className="flex flex-col items-center">
       {deleteActive && (
@@ -200,7 +205,10 @@ const InvoiceInfo = () => {
         </div>
       )}
       <div className="buttons w-full py-[22px] py-[24px] bg-white shadow-box-light flex items-center gap-[8px] justify-center dark:bg-box-dark mt-[56px]">
-        <button className="w-[73px] rounded-[24px] bg-pricing py-[16px] text-[#7E88C3] text-[15px] font-bold cursor-pointer dark:bg-price-box dark:text-[#DFE3FA]">
+        <button
+          onClick={handleEdit}
+          className="w-[73px] rounded-[24px] bg-pricing py-[16px] text-[#7E88C3] text-[15px] font-bold cursor-pointer dark:bg-price-box dark:text-[#DFE3FA]"
+        >
           Edit
         </button>
         <button
