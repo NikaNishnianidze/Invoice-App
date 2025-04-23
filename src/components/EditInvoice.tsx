@@ -147,7 +147,7 @@ const EditInvoice = () => {
                 id="address"
                 {...register("address")}
                 defaultValue={invoice.senderAddress.street}
-                className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px]"
+                className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
               />
             </div>
             <div className="city-post mt-[24px] flex gap-[23px]">
@@ -163,7 +163,7 @@ const EditInvoice = () => {
                   type="text"
                   id="city"
                   defaultValue={invoice.senderAddress.city}
-                  className="w-[152px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px]"
+                  className="w-[152px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
                 />
               </div>
               <div className="post flex flex-col gap-[9px]">
@@ -178,7 +178,7 @@ const EditInvoice = () => {
                   id="post"
                   {...register("post")}
                   defaultValue={invoice.senderAddress.postCode}
-                  className="w-[152px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px]"
+                  className="w-[152px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
                 />
               </div>
             </div>
@@ -194,7 +194,7 @@ const EditInvoice = () => {
                 id="country"
                 {...register("coutry")}
                 defaultValue={invoice.senderAddress.country}
-                className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px]"
+                className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
               />
             </div>
             <p className="mt-[41px] text-[#7C5DFA] text-[15px] font-bold">
@@ -212,7 +212,7 @@ const EditInvoice = () => {
                 id="name"
                 {...register("clientName")}
                 defaultValue={invoice.clientName}
-                className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px]"
+                className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
               />
             </div>
             <div className="email mt-[24px] flex flex-col gap-[9px]">
@@ -227,7 +227,7 @@ const EditInvoice = () => {
                 id="clientEmail"
                 {...register("clientEmail")}
                 defaultValue={invoice.clientEmail}
-                className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px]"
+                className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
               />
             </div>
             <div className="to-address mt-[24px] flex flex-col gap-[9px]">
@@ -242,7 +242,7 @@ const EditInvoice = () => {
                 id="streetAddress"
                 {...register("streetAddress")}
                 defaultValue={invoice.clientAddress.street}
-                className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px]"
+                className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
               />
             </div>
             <div className="city-post mt-[24px] flex gap-[23px]">
@@ -258,7 +258,7 @@ const EditInvoice = () => {
                   id="cityName"
                   {...register("cityName")}
                   defaultValue={invoice.clientAddress.city}
-                  className="w-[152px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px]"
+                  className="w-[152px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
                 />
               </div>
               <div className="post flex flex-col gap-[9px]">
@@ -273,7 +273,7 @@ const EditInvoice = () => {
                   id="postCode"
                   {...register("postCode")}
                   defaultValue={invoice.clientAddress.postCode}
-                  className="w-[152px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px]"
+                  className="w-[152px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
                 />
               </div>
             </div>
@@ -289,7 +289,7 @@ const EditInvoice = () => {
                 id="countryTo"
                 {...register("countryTo")}
                 defaultValue={invoice.clientAddress.country}
-                className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px]"
+                className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
               />
             </div>
             <div className="Invoice Date flex flex-col mt-[25px] gap-[9px]">
@@ -308,7 +308,7 @@ const EditInvoice = () => {
                     trigger("invoiceDate");
                   }}
                   dateFormat="dd MMM yyyy"
-                  className="w-[327px] py-[16px] pl-[20px] pr-[40px] rounded-[4px] bg-white border border-[#DFE3FA] appearance-none"
+                  className="w-[327px] py-[16px] pl-[20px] pr-[40px] rounded-[4px] bg-white border border-[#DFE3FA] appearance-none dark:bg-box-dark dark:border-price-box dark:text-white"
                 />
                 <img
                   src={calendarIcon}
@@ -333,7 +333,7 @@ const EditInvoice = () => {
                     trigger("paymentTerms");
                   }}
                   dateFormat="dd MMM yyyy"
-                  className="w-[327px] py-[16px] pl-[20px] pr-[40px] rounded-[4px] bg-white border border-[#DFE3FA] appearance-none"
+                  className="w-[327px] py-[16px] pl-[20px] pr-[40px] rounded-[4px] bg-white border border-[#DFE3FA] appearance-none dark:bg-box-dark dark:border-price-box dark:text-white"
                 />
 
                 <img
@@ -355,7 +355,7 @@ const EditInvoice = () => {
                 id="projectDescription"
                 {...register("projectDescription")}
                 defaultValue={invoice.description}
-                className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px]"
+                className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
               />
             </div>
             <p className="mt-[69px] text-[#777F98] text-[18px] font-bold">
@@ -373,7 +373,7 @@ const EditInvoice = () => {
                 id="itemName"
                 {...register("itemName")}
                 defaultValue={invoice.items[0].name}
-                className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px]"
+                className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
               />
             </div>
             <div className="q-price-total flex items-center gap-[16px] mt-[25px] ">
@@ -389,7 +389,7 @@ const EditInvoice = () => {
                   id="qty"
                   {...register("qty")}
                   defaultValue={invoice.items[0].quantity}
-                  className="w-[64px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px]"
+                  className="w-[64px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
                 />
               </div>
               <div className="price flex flex-col gap-[9px]">
@@ -404,7 +404,7 @@ const EditInvoice = () => {
                   id="price"
                   {...register("price")}
                   defaultValue={invoice.items[0].price}
-                  className="w-[100px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px]"
+                  className="w-[100px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
                 />
               </div>
               <div className="total  flex flex-col gap-[28px] justify-center">
@@ -414,7 +414,9 @@ const EditInvoice = () => {
                 >
                   Price
                 </label>
-                <p className="w-[56px] h-[48px] ">{invoice.total}</p>
+                <p className="w-[56px] h-[48px] dark:text-[#fff]">
+                  {invoice.total}
+                </p>
               </div>
               <img
                 src={deleteIcon}
@@ -434,7 +436,7 @@ const EditInvoice = () => {
                 id="itemName"
                 {...register("itemName")}
                 defaultValue={invoice.items[1]?.name}
-                className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px]"
+                className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
               />
             </div>
             <div className="q-price-total flex items-center gap-[16px] mt-[25px] ">
@@ -450,7 +452,7 @@ const EditInvoice = () => {
                   id="qty"
                   {...register("qty")}
                   defaultValue={invoice.items[1]?.quantity}
-                  className="w-[64px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px]"
+                  className="w-[64px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
                 />
               </div>
               <div className="price flex flex-col gap-[9px]">
@@ -465,7 +467,7 @@ const EditInvoice = () => {
                   id="price"
                   {...register("price")}
                   defaultValue={invoice.items[1]?.price}
-                  className="w-[100px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px]"
+                  className="w-[100px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
                 />
               </div>
               <div className="total  flex flex-col gap-[28px] justify-center">
@@ -475,7 +477,9 @@ const EditInvoice = () => {
                 >
                   Price
                 </label>
-                <p className="w-[56px] h-[48px] ">{invoice.total}</p>
+                <p className="w-[56px] h-[48px] dark:text-[#fff]">
+                  {invoice.total}
+                </p>
               </div>
               <img
                 src={deleteIcon}
@@ -483,7 +487,7 @@ const EditInvoice = () => {
                 className="ml-[40px] mt-[30px]"
               />
             </div>
-            <footer className="w-full p-[24px] bg-white shadow-box-light mt-[103px] flex items-center justify-center gap-[7px]">
+            <footer className="w-full p-[24px] bg-white shadow-box-light mt-[103px] flex items-center justify-center gap-[7px] dark:bg-box-dark dark:border-price-box dark:text-white">
               <div className="discard">
                 <button
                   onClick={handleDiscard}

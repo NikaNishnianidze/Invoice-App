@@ -30,8 +30,8 @@ const InvoiceInfo = () => {
     <div className="flex flex-col items-center">
       {deleteActive && (
         <div className="bg-black/50 fixed inset-0 flex items-center justify-center z-50 ">
-          <div className="bg-white w-[327px] p-[32px] rounded-[8px] shadow-box-light">
-            <p className="text-[#0C0E16] text-[24px] font-bold">
+          <div className="bg-white w-[327px] p-[32px] rounded-[8px] shadow-box-light dark:bg-box-dark">
+            <p className="text-[#0C0E16] text-[24px] font-bold dark:text-[#fff]">
               Confirm Deletion
             </p>
             <p className="text-[#888EB0] text-[13px] font-medium">
@@ -41,7 +41,7 @@ const InvoiceInfo = () => {
             <div className="buttons mt-[22px] flex items-center justify-end gap-[8px]">
               <button
                 onClick={() => setDeleteActive(false)}
-                className="w-[91px] py-[16px] rounded-[24px] text-[#7E88C3] text-[15px] font-bold bg-pricing"
+                className="w-[91px] py-[16px] rounded-[24px] text-[#7E88C3] text-[15px] font-bold bg-pricing dark:bg-price-box dark:text-[#DFE3FA] dark:border-price-box"
               >
                 Cancel
               </button>
