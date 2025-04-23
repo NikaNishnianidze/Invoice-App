@@ -18,6 +18,10 @@
 
   --shadow-box-dark: 0px 10px 10px -10px rgba(72, 84, 159, 0.1);
   --shadow-box-light: 0px 10px 10px -10px rgba(72, 84, 159, 0.1);
+
+  --breakpoint-mb: 375px;
+  --breakpoint-tb: 768px;
+  --breakpoint-dk: 1440px;
 }
 
 body {

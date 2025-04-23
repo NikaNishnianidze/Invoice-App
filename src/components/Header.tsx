@@ -24,9 +24,9 @@ export default function Heeader() {
   };
   return (
     <div className="flex justify-center">
-      <header className="w-[375px] flex items-center justify-between">
+      <header className="w-[375px] flex items-center justify-between tb:w-[768px]">
         <div className="logo">
-          <img src={logo} alt="logo icon" />
+          <img src={logo} alt="logo icon" className="w-[80px] h-[80px]" />
         </div>
         <div className="dark-avatar flex items-center gap-[24px] mr-[24px]">
           <img
