@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import arrowLeft from "../../public/assets/icon-arrow-left.svg";
 import { useState } from "react";
 import { useInvoice } from "../contexts/InvoiceProvider";
+import EditInvoice from "./EditInvoice";
 
 const InvoiceInfo = () => {
   const { id } = useParams();
@@ -9,6 +10,8 @@ const InvoiceInfo = () => {
   const [deleteActive, setDeleteActive] = useState<boolean>(false);
   const { invoices, deleteInvoice, handleMarkAsPaid } = useInvoice();
   const invoice = invoices.find((invoice) => invoice.id == id);
+  const [editActive, setEditActive] = useState<boolean>(false);
+  const [newInovice, setNewInvoice] = useState<boolean>(false);
 
   const handleGoBack = () => {
     navigate("/invoices");
@@ -23,14 +26,31 @@ const InvoiceInfo = () => {
 
   const handleEdit = () => {
     if (!invoice) return;
-    navigate(`/invoices/edit/${invoice.id}`);
+    if (window.innerWidth >= 768) {
+      setEditActive(true);
+    } else {
+      navigate(`/invoices/edit/${id}`);
+    }
   };
 
   return (
     <div className="flex flex-col items-center">
+      {editActive && (
+        <div className="hidden tb:block absolute top-20 inset-0 h-[2320px] bg-black/50 flex items-center justify-center z-10 tb:flex tb:items-start tb:justify-center">
+          <div className="hidden absolute top-[-20px] left-0 tb:block bg-white w-[616px] p-[24px] rounded-[8px] shadow-box-light dark:bg-box-dark mt-[20px] z-20">
+            <button
+              onClick={() => setEditActive(false)}
+              className="text-[#7E88C3] text-[15px] font-bold mb-[16px]"
+            >
+              Close
+            </button>
+            <EditInvoice />
+          </div>
+        </div>
+      )}
       {deleteActive && (
         <div className="bg-black/50 fixed inset-0 flex items-center justify-center z-50 ">
-          <div className="bg-white w-[327px] p-[32px] rounded-[8px] shadow-box-light dark:bg-box-dark">
+          <div className="bg-white w-[327px] p-[32px] rounded-[8px] shadow-box-light dark:bg-box-dark tb:w-[480px] tb:p-[30px] ">
             <p className="text-[#0C0E16] text-[24px] font-bold dark:text-[#fff]">
               Confirm Deletion
             </p>
@@ -55,6 +75,7 @@ const InvoiceInfo = () => {
           </div>
         </div>
       )}
+
       <div
         onClick={handleGoBack}
         className="go-back mt-[33px] flex items-center gap-[23.66px] w-[327px] tb:w-[688px] tb:mt-[49px] "
