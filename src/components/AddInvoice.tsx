@@ -11,13 +11,15 @@ import calendarIcon from "../../public/assets/icon-calendar.svg";
 import deleteIcon from "../../public/assets/icon-delete.svg";
 import plusIcon from "../../public/assets/icon-plus.svg";
 import { useInvoice } from "../contexts/InvoiceProvider";
+import { set } from "date-fns";
 
 const AddInvoice = () => {
   const navigate = useNavigate();
   const handleGoBack = () => {
     navigate("/invoices");
+    setNewInvoice(false);
   };
-  const { invoices, setInvoices } = useInvoice();
+  const { invoices, setInvoices, setNewInvoice } = useInvoice();
   const [invoiceDate, setInvoiceDate] = useState<Date | null>(null);
   const [paymentDate, setPaymentDate] = useState<Date | null>(null);
   const schema: yup.ObjectSchema<IInputs> = yup.object({
@@ -96,6 +98,7 @@ const AddInvoice = () => {
 
   const handleSave = () => {
     navigate("/invoices");
+    setNewInvoice(false);
   };
 
   const handleDraft: SubmitHandler<IInputs> = (data: IInputs) => {
@@ -138,6 +141,7 @@ const AddInvoice = () => {
 
   const handleDiscard = () => {
     navigate("/invoices");
+    setNewInvoice(false);
   };
 
   return (
@@ -172,7 +176,7 @@ const AddInvoice = () => {
             id="address"
             {...register("address")}
             defaultValue={"19 Union Terrace"}
-            className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
+            className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white tb:w-[504px]"
           />
         </div>
         <div className="city-post mt-[24px] flex gap-[23px]">
@@ -219,7 +223,7 @@ const AddInvoice = () => {
             id="country"
             {...register("coutry")}
             defaultValue={"United Kingdom"}
-            className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
+            className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white tb:w-[504px]"
           />
         </div>
         <p className="mt-[41px] text-[#7C5DFA] text-[15px] font-bold">
@@ -237,7 +241,7 @@ const AddInvoice = () => {
             id="name"
             {...register("clientName")}
             defaultValue={"Alex Grim"}
-            className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
+            className="w-[327px] tb:w-[504px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
           />
         </div>
         <div className="email mt-[24px] flex flex-col gap-[9px]">
@@ -252,7 +256,7 @@ const AddInvoice = () => {
             id="clientEmail"
             {...register("clientEmail")}
             defaultValue={"alexgrim@mail.com"}
-            className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
+            className="w-[327px] tb:w-[504px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
           />
         </div>
         <div className="to-address mt-[24px] flex flex-col gap-[9px]">
@@ -267,7 +271,7 @@ const AddInvoice = () => {
             id="streetAddress"
             {...register("streetAddress")}
             defaultValue={"84 Church Way"}
-            className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
+            className="w-[327px] tb:w-[504px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
           />
         </div>
         <div className="city-post mt-[24px] flex gap-[23px]">
@@ -314,7 +318,7 @@ const AddInvoice = () => {
             id="countryTo"
             {...register("countryTo")}
             defaultValue={"United Kingdom"}
-            className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
+            className="w-[327px] tb:w-[504px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
           />
         </div>
         <div className="Invoice Date flex flex-col mt-[25px] gap-[9px]">
@@ -333,12 +337,12 @@ const AddInvoice = () => {
                 trigger("invoiceDate");
               }}
               dateFormat="dd MMM yyyy"
-              className="w-[327px] py-[16px] pl-[20px] pr-[40px] rounded-[4px] bg-white border border-[#DFE3FA] appearance-none dark:bg-box-dark dark:border-price-box dark:text-white"
+              className="w-[327px] tb:w-[504px] py-[16px] pl-[20px] pr-[40px] rounded-[4px] bg-white border border-[#DFE3FA] appearance-none dark:bg-box-dark dark:border-price-box dark:text-white"
             />
             <img
               src={calendarIcon}
               alt="calendarIcon"
-              className="absolute right-[15px] top-1/2 -translate-y-1/2 pointer-events-none"
+              className="absolute right-[15px] tb:right-[-140px] top-1/2 -translate-y-1/2 pointer-events-none"
             />
           </div>
         </div>
@@ -358,13 +362,13 @@ const AddInvoice = () => {
                 trigger("paymentTerms");
               }}
               dateFormat="dd MMM yyyy"
-              className="w-[327px] py-[16px] pl-[20px] pr-[40px] rounded-[4px] bg-white border border-[#DFE3FA] appearance-none dark:bg-box-dark dark:border-price-box dark:text-white"
+              className="w-[327px] tb:w-[504px] py-[16px] pl-[20px] pr-[40px] rounded-[4px] bg-white border border-[#DFE3FA] appearance-none dark:bg-box-dark dark:border-price-box dark:text-white"
             />
 
             <img
               src={calendarIcon}
               alt="calendarIcon"
-              className="absolute right-[15px] top-1/2 -translate-y-1/2 pointer-events-none"
+              className="absolute right-[15px] tb:right-[-140px] top-1/2 -translate-y-1/2 pointer-events-none"
             />
           </div>
         </div>
@@ -380,7 +384,7 @@ const AddInvoice = () => {
             id="projectDescription"
             {...register("projectDescription")}
             defaultValue={"Graphic Design"}
-            className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
+            className="w-[327px] tb:w-[504px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
           />
         </div>
         <p className="mt-[69px] text-[#777F98] text-[18px] font-bold">
@@ -398,7 +402,7 @@ const AddInvoice = () => {
             id="itemName"
             {...register("itemName")}
             defaultValue={"Banner Design"}
-            className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
+            className="w-[327px] tb:w-[504px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
           />
         </div>
         <div className="q-price-total flex items-center gap-[16px] mt-[25px] ">
@@ -414,7 +418,7 @@ const AddInvoice = () => {
               id="qty"
               {...register("qty")}
               defaultValue={"1"}
-              className="w-[64px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
+              className="w-[64px] tb:w-[100px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
             />
           </div>
           <div className="price flex flex-col gap-[9px]">
@@ -459,7 +463,7 @@ const AddInvoice = () => {
             id="itemName"
             {...register("itemName")}
             defaultValue={"Email Design"}
-            className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
+            className="w-[327px] tb:w-[504px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
           />
         </div>
         <div className="q-price-total flex items-center gap-[16px] mt-[25px] ">
@@ -475,7 +479,7 @@ const AddInvoice = () => {
               id="qty"
               {...register("qty")}
               defaultValue={"2"}
-              className="w-[64px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
+              className="w-[64px] tb:w-[100px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
             />
           </div>
           <div className="price flex flex-col gap-[9px]">
@@ -511,14 +515,14 @@ const AddInvoice = () => {
 
         <button
           type="submit"
-          className="w-[327px] rounded-[24px] bg-pricing py-[16px] text-[#7E88C3] text-[15px] font-bold cursor-pointer mt-[48px] flex items-center justify-center gap-[3px]"
+          className="w-[327px] tb:w-[504px]  rounded-[24px] bg-pricing py-[16px] text-[#7E88C3] text-[15px] font-bold cursor-pointer mt-[48px] flex items-center justify-center gap-[3px] dark:bg-price-box dark:border-price-box dark:text-white"
         >
           <img src={plusIcon} alt="plus Icon" />
           Add New Item
         </button>
       </form>
 
-      <footer className="w-full p-[24px] bg-white shadow-box-light mt-[103px] flex items-center justify-center gap-[7px] dark:bg-box-dark dark:border-price-box dark:text-white">
+      <footer className="w-full p-[24px] bg-white shadow-box-light mt-[103px] flex items-center justify-center gap-[7px] dark:bg-box-dark dark:border-price-box dark:text-white tb:justify-between tb:gap-[50px]">
         <div className="discard">
           <button
             onClick={handleDiscard}

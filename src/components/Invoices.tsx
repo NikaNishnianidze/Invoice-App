@@ -4,9 +4,10 @@ import plusIcon from "../../public/assets/icon-plus.svg";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import illustration from "../../public/assets/illustration-empty.svg";
+import AddInvoice from "./AddInvoice";
 
 const Invoices = () => {
-  const { invoices } = useInvoice();
+  const { invoices, newInvoice, setNewInvoice } = useInvoice();
   const [filterOpen, setFilterOpen] = useState<boolean>(false);
   const [filteredInvoice, setFilteredInvoice] = useState(invoices);
   const [selectedStatuses, setSelectedStatuses] = useState<string[]>([]);
@@ -28,11 +29,25 @@ const Invoices = () => {
   };
 
   const handleNew = () => {
-    navigate("/invoices/newinvoice");
+    if (window.innerWidth >= 768) {
+      setNewInvoice(true);
+    } else {
+      navigate("/invoices/new");
+    }
   };
 
   return (
     <div className="flex flex-col items-center w-full">
+      <div className="div mb:hidden tb:block tb:flex tb:flex-row tb:items-center tb:justify-center tb:w-[768px]">
+        {newInvoice && (
+          <div className="hidden tb:block absolute top-20 inset-0 h-[2320px] bg-black/50 flex items-center justify-center z-10 tb:flex tb:items-start tb:justify-start">
+            <div className="hidden absolute top-[-20px] tb:flex tb:justify-start left-0 tb:block bg-white w-[616px] p-[24px] rounded-[8px] shadow-box-light dark:bg-box-dark mt-[20px] z-20">
+              <AddInvoice />
+            </div>
+          </div>
+        )}
+      </div>
+
       <div className="w-[375px] invoice-filter-add flex flex-row items-center justify-between mt-[36px] px-[25px] tb:w-[768px] tb:mt-[62px] tb:px-[48px]">
         <div className="invoices flex flex-col">
           <h2 className="text-[#0C0E16] text-[24px] font-bold dark:text-[#fff]">
@@ -95,7 +110,7 @@ const Invoices = () => {
         </div>
       )}
       {filterOpen && (
-        <div className="w-[150px] bg-white rounded-[6px] shadow-box-light ml-[120px] px-[10px] py-[10px] flex flex-col gap-[4px] dark:bg-box-dark">
+        <div className="w-[150px] bg-white rounded-[6px] shadow-box-light ml-[120px] px-[10px] py-[10px] flex flex-col gap-[4px] dark:bg-box-dark tb:ml-[230px]">
           {["paid", "pending", "draft"].map((status) => (
             <label
               key={status}

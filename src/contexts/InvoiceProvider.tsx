@@ -7,6 +7,8 @@ interface IInvoiceContext {
   setInvoices: React.Dispatch<React.SetStateAction<TInvoiceList>>;
   deleteInvoice: (id: string) => void;
   handleMarkAsPaid: (id: string) => void;
+  newInvoice: boolean;
+  setNewInvoice: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const invoiceContext = createContext<IInvoiceContext>({
@@ -14,10 +16,13 @@ const invoiceContext = createContext<IInvoiceContext>({
   setInvoices: () => {},
   deleteInvoice: () => {},
   handleMarkAsPaid: () => {},
+  newInvoice: false,
+  setNewInvoice: () => {},
 });
 
 export default function InvoiceProvider({ children }: { children: ReactNode }) {
   const [invoices, setInvoices] = useState<TInvoiceList>(data);
+  const [newInvoice, setNewInvoice] = useState<boolean>(false);
 
   const deleteInvoice = (id: string) => {
     setInvoices((prev) => prev.filter((invoice) => invoice.id !== id));
@@ -32,7 +37,14 @@ export default function InvoiceProvider({ children }: { children: ReactNode }) {
 
   return (
     <invoiceContext.Provider
-      value={{ invoices, setInvoices, deleteInvoice, handleMarkAsPaid }}
+      value={{
+        invoices,
+        setInvoices,
+        deleteInvoice,
+        handleMarkAsPaid,
+        newInvoice,
+        setNewInvoice,
+      }}
     >
       {children}
     </invoiceContext.Provider>

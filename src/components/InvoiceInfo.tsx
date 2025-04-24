@@ -11,7 +11,6 @@ const InvoiceInfo = () => {
   const { invoices, deleteInvoice, handleMarkAsPaid } = useInvoice();
   const invoice = invoices.find((invoice) => invoice.id == id);
   const [editActive, setEditActive] = useState<boolean>(false);
-  const [newInovice, setNewInvoice] = useState<boolean>(false);
 
   const handleGoBack = () => {
     navigate("/invoices");
@@ -36,14 +35,8 @@ const InvoiceInfo = () => {
   return (
     <div className="flex flex-col items-center">
       {editActive && (
-        <div className="hidden tb:block absolute top-20 inset-0 h-[2320px] bg-black/50 flex items-center justify-center z-10 tb:flex tb:items-start tb:justify-center">
-          <div className="hidden absolute top-[-20px] left-0 tb:block bg-white w-[616px] p-[24px] rounded-[8px] shadow-box-light dark:bg-box-dark mt-[20px] z-20">
-            <button
-              onClick={() => setEditActive(false)}
-              className="text-[#7E88C3] text-[15px] font-bold mb-[16px]"
-            >
-              Close
-            </button>
+        <div className="hidden tb:block absolute top-20 inset-0 h-[2320px] bg-black/50 flex items-center justify-center z-10 tb:flex ">
+          <div className="hidden absolute top-[-20px] tb:flex  left-0 tb:block bg-white w-[616px] p-[24px] rounded-[8px] shadow-box-light dark:bg-box-dark mt-[20px] z-20">
             <EditInvoice />
           </div>
         </div>

@@ -24,7 +24,7 @@ export default function Heeader() {
   };
   return (
     <div className="flex justify-center">
-      <header className="w-[375px] flex items-center justify-between tb:w-[768px]">
+      <header className="w-[375px] flex items-center justify-between  w-full">
         <div className="logo">
           <img src={logo} alt="logo icon" className="w-[80px] h-[80px]" />
         </div>
