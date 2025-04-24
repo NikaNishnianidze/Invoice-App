@@ -11,7 +11,6 @@ import calendarIcon from "../../public/assets/icon-calendar.svg";
 import deleteIcon from "../../public/assets/icon-delete.svg";
 import plusIcon from "../../public/assets/icon-plus.svg";
 import { useInvoice } from "../contexts/InvoiceProvider";
-import { set } from "date-fns";
 
 const AddInvoice = () => {
   const navigate = useNavigate();
@@ -42,7 +41,7 @@ const AddInvoice = () => {
       .string()
       .required("Project description is required"),
     itemName: yup.string().required("Item name is required"),
-    qty: yup.string().required("Quantity is required"),
+    qty: yup.string().required("required"),
     price: yup.string().required("Price is required"),
     total: yup.string().notRequired(),
   });
@@ -178,6 +177,11 @@ const AddInvoice = () => {
             defaultValue={"19 Union Terrace"}
             className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white tb:w-[504px]"
           />
+          {errors.address ? (
+            <p className="text-[13px] text-[#EC5757] font-medium">
+              {errors.address.message}
+            </p>
+          ) : null}
         </div>
         <div className="city-post mt-[24px] flex gap-[23px]">
           <div className="city flex flex-col gap-[9px]">
@@ -194,6 +198,11 @@ const AddInvoice = () => {
               defaultValue={"London"}
               className="w-[152px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
             />
+            {errors.city ? (
+              <p className="text-[13px] text-[#EC5757] font-medium">
+                {errors.city.message}
+              </p>
+            ) : null}
           </div>
           <div className="post flex flex-col gap-[9px]">
             <label
@@ -209,6 +218,11 @@ const AddInvoice = () => {
               defaultValue={"E1 3EZ"}
               className="w-[152px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
             />
+            {errors.post ? (
+              <p className="text-[13px] text-[#EC5757] font-medium">
+                {errors.post.message}
+              </p>
+            ) : null}
           </div>
         </div>
         <div className="country flex flex-col mt-[25px] gap-[9px]">
@@ -225,6 +239,11 @@ const AddInvoice = () => {
             defaultValue={"United Kingdom"}
             className="w-[327px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white tb:w-[504px]"
           />
+          {errors.coutry ? (
+            <p className="text-[13px] text-[#EC5757] font-medium">
+              {errors.coutry.message}
+            </p>
+          ) : null}
         </div>
         <p className="mt-[41px] text-[#7C5DFA] text-[15px] font-bold">
           Bill To
@@ -243,6 +262,11 @@ const AddInvoice = () => {
             defaultValue={"Alex Grim"}
             className="w-[327px] tb:w-[504px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
           />
+          {errors.clientName ? (
+            <p className="text-[13px] text-[#EC5757] font-medium">
+              {errors.clientName.message}
+            </p>
+          ) : null}
         </div>
         <div className="email mt-[24px] flex flex-col gap-[9px]">
           <label
@@ -258,6 +282,11 @@ const AddInvoice = () => {
             defaultValue={"alexgrim@mail.com"}
             className="w-[327px] tb:w-[504px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
           />
+          {errors.clientEmail ? (
+            <p className="text-[13px] text-[#EC5757] font-medium">
+              {errors.clientEmail.message}
+            </p>
+          ) : null}
         </div>
         <div className="to-address mt-[24px] flex flex-col gap-[9px]">
           <label
@@ -273,6 +302,11 @@ const AddInvoice = () => {
             defaultValue={"84 Church Way"}
             className="w-[327px] tb:w-[504px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
           />
+          {errors.streetAddress ? (
+            <p className="text-[13px] text-[#EC5757] font-medium">
+              {errors.streetAddress.message}
+            </p>
+          ) : null}
         </div>
         <div className="city-post mt-[24px] flex gap-[23px]">
           <div className="city flex flex-col gap-[9px]">
@@ -289,6 +323,11 @@ const AddInvoice = () => {
               defaultValue={"Bradford"}
               className="w-[152px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
             />
+            {errors.cityName ? (
+              <p className="text-[13px] text-[#EC5757] font-medium">
+                {errors.cityName.message}
+              </p>
+            ) : null}
           </div>
           <div className="post flex flex-col gap-[9px]">
             <label
@@ -304,6 +343,11 @@ const AddInvoice = () => {
               defaultValue={"BD1 9PB"}
               className="w-[152px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
             />
+            {errors.postCode ? (
+              <p className="text-[13px] text-[#EC5757] font-medium">
+                {errors.postCode.message}
+              </p>
+            ) : null}
           </div>
         </div>
         <div className="country flex flex-col mt-[25px] gap-[9px]">
@@ -320,6 +364,11 @@ const AddInvoice = () => {
             defaultValue={"United Kingdom"}
             className="w-[327px] tb:w-[504px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
           />
+          {errors.countryTo ? (
+            <p className="text-[13px] text-[#EC5757] font-medium">
+              {errors.countryTo.message}
+            </p>
+          ) : null}
         </div>
         <div className="Invoice Date flex flex-col mt-[25px] gap-[9px]">
           <label
@@ -339,6 +388,11 @@ const AddInvoice = () => {
               dateFormat="dd MMM yyyy"
               className="w-[327px] tb:w-[504px] py-[16px] pl-[20px] pr-[40px] rounded-[4px] bg-white border border-[#DFE3FA] appearance-none dark:bg-box-dark dark:border-price-box dark:text-white"
             />
+            {errors.invoiceDate ? (
+              <p className="text-[13px] text-[#EC5757] font-medium">
+                {errors.invoiceDate.message}
+              </p>
+            ) : null}
             <img
               src={calendarIcon}
               alt="calendarIcon"
@@ -364,6 +418,11 @@ const AddInvoice = () => {
               dateFormat="dd MMM yyyy"
               className="w-[327px] tb:w-[504px] py-[16px] pl-[20px] pr-[40px] rounded-[4px] bg-white border border-[#DFE3FA] appearance-none dark:bg-box-dark dark:border-price-box dark:text-white"
             />
+            {errors.paymentTerms ? (
+              <p className="text-[13px] text-[#EC5757] font-medium">
+                {errors.paymentTerms.message}
+              </p>
+            ) : null}
 
             <img
               src={calendarIcon}
@@ -386,6 +445,11 @@ const AddInvoice = () => {
             defaultValue={"Graphic Design"}
             className="w-[327px] tb:w-[504px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
           />
+          {errors.projectDescription ? (
+            <p className="text-[13px] text-[#EC5757] font-medium">
+              {errors.projectDescription.message}
+            </p>
+          ) : null}
         </div>
         <p className="mt-[69px] text-[#777F98] text-[18px] font-bold">
           Item List
@@ -404,6 +468,11 @@ const AddInvoice = () => {
             defaultValue={"Banner Design"}
             className="w-[327px] tb:w-[504px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
           />
+          {errors.itemName ? (
+            <p className="text-[13px] text-[#EC5757] font-medium">
+              {errors.itemName.message}
+            </p>
+          ) : null}
         </div>
         <div className="q-price-total flex items-center gap-[16px] mt-[25px] ">
           <div className="q flex flex-col gap-[9px]">
@@ -420,6 +489,11 @@ const AddInvoice = () => {
               defaultValue={"1"}
               className="w-[64px] tb:w-[100px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
             />
+            {errors.qty ? (
+              <p className="text-[13px] text-[#EC5757] font-medium">
+                {errors.qty.message}
+              </p>
+            ) : null}
           </div>
           <div className="price flex flex-col gap-[9px]">
             <label
@@ -435,6 +509,11 @@ const AddInvoice = () => {
               defaultValue={"156.00"}
               className="w-[100px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
             />
+            {errors.price ? (
+              <p className="text-[13px] text-[#EC5757] font-medium">
+                {errors.price.message}
+              </p>
+            ) : null}
           </div>
           <div className="total  flex flex-col gap-[28px] justify-center">
             <label
@@ -465,8 +544,13 @@ const AddInvoice = () => {
             defaultValue={"Email Design"}
             className="w-[327px] tb:w-[504px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
           />
+          {errors.itemName ? (
+            <p className="text-[13px] text-[#EC5757] font-medium">
+              {errors.itemName.message}
+            </p>
+          ) : null}
         </div>
-        <div className="q-price-total flex items-center gap-[16px] mt-[25px] ">
+        <div className="q-price-total flex items-center gap-[16px] mt-[26px] ">
           <div className="q flex flex-col gap-[9px]">
             <label
               htmlFor="qty"
@@ -481,6 +565,11 @@ const AddInvoice = () => {
               defaultValue={"2"}
               className="w-[64px] tb:w-[100px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
             />
+            {errors.qty ? (
+              <p className="text-[13px] text-[#EC5757] font-medium">
+                {errors.qty.message}
+              </p>
+            ) : null}
           </div>
           <div className="price flex flex-col gap-[9px]">
             <label
@@ -496,6 +585,11 @@ const AddInvoice = () => {
               defaultValue={"200.00"}
               className="w-[100px] py-[16px] rounded-[4px] bg-white border-[1px] border-[#DFE3FA] px-[20px] dark:bg-box-dark dark:border-price-box dark:text-white"
             />
+            {errors.price ? (
+              <p className="text-[13px] text-[#EC5757] font-medium ">
+                {errors.price.message}
+              </p>
+            ) : null}
           </div>
           <div className="total  flex flex-col gap-[28px] justify-center">
             <label

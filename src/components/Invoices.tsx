@@ -32,7 +32,7 @@ const Invoices = () => {
     if (window.innerWidth >= 768) {
       setNewInvoice(true);
     } else {
-      navigate("/invoices/new");
+      navigate("/invoices/newinvoice");
     }
   };
 
@@ -145,7 +145,7 @@ const Invoices = () => {
           ))}
         </div>
       )}
-      <div className="mb:block tb:hidden invoice-list mt-[32px] flex flex-col gap-[16px]">
+      <div className="mb:block gap-[16px] tb:hidden invoice-list mt-[32px] mb:flex mb:flex-col ">
         {filteredInvoice.map((invoice) => {
           return (
             <div
