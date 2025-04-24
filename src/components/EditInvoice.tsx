@@ -586,7 +586,7 @@ const EditInvoice = () => {
               <div className="discard">
                 <button
                   onClick={handleDiscard}
-                  className="w-[84px] py-[16px] bg-pricing rounded-[24px] text-[#7E88C3] text-[15px] font-bold"
+                  className="w-[84px] hover:bg-delete-hover py-[16px] bg-pricing rounded-[24px] text-[#7E88C3] text-[15px] font-bold cursor-pointer"
                 >
                   Discard
                 </button>
@@ -594,7 +594,7 @@ const EditInvoice = () => {
               <div className="draft-send flex gap-[7px] items-center">
                 <button
                   type="submit"
-                  className="w-[112px] py-[16px] bg-mark rounded-[24px] text-[#fff] font-bold text-[15px]"
+                  className="w-[112px] hover:bg-mark-hover py-[16px] bg-mark rounded-[24px] text-[#fff] font-bold text-[15px] cursor-pointer"
                 >
                   Save & Send
                 </button>

@@ -60,7 +60,7 @@ const Invoices = () => {
             There are {invoices.length} total invoices
           </p>
         </div>
-        <div className="filter-new flex flex-row items-center gap-[18px] ">
+        <div className="filter-new flex flex-row items-center gap-[18px]  cursor-pointer">
           <div
             className="filter flex flex-row gap-[12px] items-center "
             onClick={() => setFilterOpen(!filterOpen)}
@@ -76,7 +76,7 @@ const Invoices = () => {
 
           <div
             onClick={handleNew}
-            className="mb:block tb:hidden new w-[90px] py-[6px] rounded-[24px] bg-new mb:flex mb:flex-row items-center px-[6px] gap-[8px]"
+            className="mb:block tb:hidden new w-[90px] py-[6px] rounded-[24px] bg-new mb:flex mb:flex-row items-center px-[6px] gap-[8px] cursor-pointer hover:bg-new-hover"
           >
             <div className="new-circle w-[32px] h-[32px] rounded-[50%] flex flex-col items-center justify-center bg-white">
               <img src={plusIcon} alt="plus icon" />
@@ -87,7 +87,7 @@ const Invoices = () => {
           </div>
           <div
             onClick={handleNew}
-            className="mb:hidden tb:block new w-[150px] py-[6px] rounded-[24px] bg-new tb:flex tb:flex-row tb:items-center px-[6px] gap-[8px]"
+            className="mb:hidden tb:block new w-[150px] py-[6px] rounded-[24px] bg-new tb:flex tb:flex-row tb:items-center px-[6px] gap-[8px] cursor-pointer hover:bg-new-hover"
           >
             <div className="new-circle w-[32px] h-[32px] rounded-[50%] flex flex-col items-center justify-center bg-white">
               <img src={plusIcon} alt="plus icon" />
@@ -151,7 +151,7 @@ const Invoices = () => {
             <div
               onClick={() => handleMoreInfo(invoice.id)}
               key={invoice.id}
-              className="p-[24px] w-[327px] bg-white rounded-[8px] mb:flex mb:flex-col shadow-box-light dark:shadow-box-dark dark:bg-box-dark"
+              className="p-[24px] w-[327px] bg-white rounded-[8px] mb:flex mb:flex-col shadow-box-light dark:shadow-box-dark dark:bg-box-dark cursor-pointer"
             >
               <div className="id-name mb:flex mb:flex-row mb:items-center mb:justify-between">
                 <p className="text-[#7E88C3] text-[15px] font-bold">

@@ -609,7 +609,7 @@ const AddInvoice = () => {
 
         <button
           type="submit"
-          className="w-[327px] tb:w-[504px]  rounded-[24px] bg-pricing py-[16px] text-[#7E88C3] text-[15px] font-bold cursor-pointer mt-[48px] flex items-center justify-center gap-[3px] dark:bg-price-box dark:border-price-box dark:text-white"
+          className="w-[327px] tb:w-[504px]  rounded-[24px] bg-pricing py-[16px] text-[#7E88C3] text-[15px] font-bold cursor-pointer mt-[48px] flex items-center justify-center gap-[3px] dark:bg-price-box dark:border-price-box dark:text-white hover:bg-edit-hover hover:text-black"
         >
           <img src={plusIcon} alt="plus Icon" />
           Add New Item
@@ -620,7 +620,7 @@ const AddInvoice = () => {
         <div className="discard">
           <button
             onClick={handleDiscard}
-            className="w-[84px] py-[16px] bg-pricing rounded-[24px] text-[#7E88C3] text-[15px] font-bold dark:bg-price-box dark:border-price-box dark:text-white"
+            className="w-[84px] hover:bg-edit-hover hover:text-black py-[16px] bg-pricing rounded-[24px] text-[#7E88C3] text-[15px] font-bold dark:bg-price-box dark:border-price-box dark:text-white"
           >
             Discard
           </button>
@@ -628,13 +628,13 @@ const AddInvoice = () => {
         <div className="draft-send flex gap-[7px] items-center">
           <button
             onClick={() => handleSubmit(handleDraft)()}
-            className=" w-[117px] py-[16px] rounded-[24px] text-[#888EB0] text-[15px] font-bold bg-draft"
+            className=" w-[117px] hover:bg-edit-hover py-[16px] rounded-[24px] text-[#888EB0] text-[15px] font-bold bg-draft"
           >
             Save as Draft
           </button>
           <button
             onClick={handleSave}
-            className="w-[112px] py-[16px] bg-mark rounded-[24px] text-[#fff] font-bold text-[15px]"
+            className="w-[112px] hover:bg-delete-hover py-[16px] bg-mark rounded-[24px] text-[#fff] font-bold text-[15px]"
           >
             Save & Send
           </button>

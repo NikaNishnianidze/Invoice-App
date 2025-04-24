@@ -54,13 +54,13 @@ const InvoiceInfo = () => {
             <div className="buttons mt-[22px] flex items-center justify-end gap-[8px]">
               <button
                 onClick={() => setDeleteActive(false)}
-                className="w-[91px] py-[16px] rounded-[24px] text-[#7E88C3] text-[15px] font-bold bg-pricing dark:bg-price-box dark:text-[#DFE3FA] dark:border-price-box"
+                className="w-[91px] py-[16px] rounded-[24px] text-[#7E88C3] text-[15px] font-bold cursor-pointer bg-pricing dark:bg-price-box dark:text-[#DFE3FA] hover:text-black dark:border-price-box hover:bg-edit-hover"
               >
                 Cancel
               </button>
               <button
                 onClick={handleDelete}
-                className="w-[89px] py-[16px] rounded-[24px] text-[#fff] text-[15px] font-bold bg-delete"
+                className="w-[89px] py-[16px] rounded-[24px] text-[#fff] text-[15px] font-bold bg-delete cursor-pointer hover:bg-delete-hover hover:text-black"
               >
                 Delete
               </button>
@@ -169,19 +169,19 @@ const InvoiceInfo = () => {
           <div className="buttons w-full tb:py-[0px] bg-white shadow-box-light flex items-center gap-[8px] justify-center dark:bg-box-dark mt-[56px] tb:mt-[0px]">
             <button
               onClick={handleEdit}
-              className="w-[73px] rounded-[24px] bg-pricing py-[16px] text-[#7E88C3] text-[15px] font-bold cursor-pointer dark:bg-price-box dark:text-[#DFE3FA]"
+              className="w-[73px] rounded-[24px] hover:bg-edit-hover hover:text-black bg-pricing py-[16px] text-[#7E88C3] text-[15px] font-bold cursor-pointer dark:bg-price-box dark:text-[#DFE3FA]"
             >
               Edit
             </button>
             <button
               onClick={() => setDeleteActive(true)}
-              className="w-[89px] py-[16px] rounded-[24px] text-[15px] text-[#fff] font-bold bg-delete cursor-pointer"
+              className="w-[89px] py-[16px] hover:bg-delete-hover rounded-[24px] text-[15px] text-[#fff] font-bold bg-delete cursor-pointer"
             >
               Delete
             </button>
             <button
               onClick={() => invoice && handleMarkAsPaid(invoice.id)}
-              className="bg-mark w-[149px] py-[16px] rounded-[24px] text-[15px] text-[#fff] font-bold cursor-pointer"
+              className="bg-mark hover:bg-mark-hover w-[149px] py-[16px] rounded-[24px] text-[15px] text-[#fff] font-bold cursor-pointer"
             >
               Mark as Paid
             </button>

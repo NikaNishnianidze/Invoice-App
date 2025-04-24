@@ -15,6 +15,10 @@
   --color-total-dark: #0c0e16;
   --color-delete: #ec5757;
   --color-mark: #7c5dfa;
+  --color-new-hover: #9277ff;
+  --color-edit-hover: #fff;
+  --color-delete-hover: #ff9797;
+  --color-mark-hover: #9277ff;
 
   --shadow-box-dark: 0px 10px 10px -10px rgba(72, 84, 159, 0.1);
   --shadow-box-light: 0px 10px 10px -10px rgba(72, 84, 159, 0.1);
